@@ -53,3 +53,16 @@ def update_product(id: str, product: Product):
         return {"message": "product not found"}
 
     return {"message": "product updated"}
+
+
+def delete_product(id: str):
+    collection = database.get_collection("productos")
+
+    try:
+        result = collection.delete_one({"_id": ObjectId(id)})
+        if result.deleted_count == 0:
+            return {"message": "product not found"}
+    except Exception as e:
+        return {"message": f"error: {str(e)}"}
+
+    return {"message": "deleted"}

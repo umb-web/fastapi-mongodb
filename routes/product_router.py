@@ -4,6 +4,7 @@ from services.product_service import (
     get_product_by_id,
     insert_product,
     update_product,
+    delete_product,
 )
 from models.product_model import Product
 
@@ -34,3 +35,8 @@ def post_product(product: Product):
 @product_rt.put("/products/{id}")
 def put_product(id: str, product: Product):
     return update_product(id, product)
+
+
+@product_rt.delete("/products/{id}")
+def delete_product_(id: str):
+    return delete_product(id)
