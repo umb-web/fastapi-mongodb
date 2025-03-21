@@ -31,7 +31,7 @@ def insert_product(product: Product):
     collection = database.get_collection("productos")
     product_dict = product.dict()
     res = collection.insert_one(product_dict)
-    return {"id": res.inserted_id, "message": "inserted"}
+    return {"id": str(res.inserted_id), "message": "inserted"}
 
 
 def update_product(id: str, product: Product):
