@@ -4,5 +4,5 @@ from typing import Optional
 
 class Product(BaseModel):
     name: str
-    descripcion: Optional[str] = None
+    description: Optional[str] = None
     price: float
